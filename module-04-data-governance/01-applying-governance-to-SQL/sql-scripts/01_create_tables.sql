@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS departments (
 );
 
 CREATE TABLE IF NOT EXISTS job_titles (
-    TitleID INTEGER PRIMARY KEY,
+    JobTitleID INTEGER PRIMARY KEY,
     JobTitle TEXT NOT NULL UNIQUE
 );
 
@@ -13,11 +13,12 @@ CREATE TABLE IF NOT EXISTS employees (
     EmployeeID INTEGER PRIMARY KEY,
     FullName TEXT NOT NULL,
     StartDate TEXT NOT NULL,
+    EndDate TEXT CHECK (EndDate IS NULL OR EndDate >= StartDate),
     DepartmentID INTEGER,
-    TitleID INTEGER,
+    JobTitleID INTEGER,
     Status TEXT NOT NULL CHECK (Status IN ('Active', 'On-boarding', 'Terminated')),
     PayType TEXT NOT NULL CHECK (PayType IN ('Salary', 'Hourly')),
     PayRate REAL NOT NULL CHECK (PayRate > 0),
     FOREIGN KEY (DepartmentID) REFERENCES departments (DepartmentID),
-    FOREIGN KEY (TitleID) REFERENCES job_titles (TitleID)
+    FOREIGN KEY (JobTitleID) REFERENCES job_titles (JobTitleID)
 );
