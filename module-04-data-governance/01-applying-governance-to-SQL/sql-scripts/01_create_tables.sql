@@ -1,7 +1,6 @@
 CREATE TABLE IF NOT EXISTS departments (
     DepartmentID INTEGER PRIMARY KEY,
-    DepartmentName TEXT NOT NULL,
-    CostCenter TEXT NOT NULL UNIQUE
+    DepartmentName TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS job_titles (
