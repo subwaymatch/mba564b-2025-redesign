@@ -1,8 +1,8 @@
 SELECT 
-    d.DepartmentName,
-    COUNT(*) AS NumEmployees,
-    ROUND(AVG(e.PayRate), 2) AS AvgSalary
+    d.department_name,
+    COUNT(*) AS num_employees,
+    ROUND(AVG(e.pay_rate), 2) AS avg_salary
 FROM employees e
-JOIN departments d ON e.DepartmentID = d.DepartmentID
-WHERE e.PayType = 'Salary'
-GROUP BY d.DepartmentName;
+JOIN departments d ON e.department_id = d.department_id
+WHERE e.pay_type = 'Salary'
+GROUP BY d.department_name;
