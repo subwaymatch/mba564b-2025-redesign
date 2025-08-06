@@ -145,3 +145,5 @@ notebook/templates/*.html
 # pixi environments
 .pixi
 *.egg-info
+
+.jupyter/
